@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>quoteShare</title>
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'first_app/userpage.css' %}">
+    <style>
+    @import url('https://fonts.googleapis.com/css?family=Walter+Turncoat');
+    @import url('https://fonts.googleapis.com/css?family=Just+Another+Hand');
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+</head>
+<body>
+    <div class="wrapper">
+        <h1 class="title">Posts By: {{user.first_name}}</h1>
+        <br>
+        <a href="/logout" class="logout">Logout</a>
+        <br>
+        <a href="/dashboard" class="dashboard">Dashboard</a>
+        <br>
+        {% for quoter in counter %}
+            {% if quoter.id == user.id %}
+            <p class="count"> quoteShare Count:</p> 
+            <p id="count2" class="animated lightSpeedIn">{{quoter.counter}}</p>
+            <h3 class="created">quoteSharer since: {{quoter.created_at}}</h3>
+            {% endif %}
+        {% endfor %}
+        {% for quote in quotes %}
+            {% if quote.user_id == user.id %}
+            <div id="card">
+                <p class="quote">{{quote.name}}: {{quote.content}}</p>
+            </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+</body>
+</html>

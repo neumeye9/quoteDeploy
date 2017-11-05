@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>quoteShare Home</title>
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'first_app/index.css' %}">
+</head>
+<style>
+@import url('https://fonts.googleapis.com/css?family=Walter+Turncoat');
+</style>
+<body>
+    <div class="wrapper">
+        <h1 class="title">quoteShare</h1>
+        <div class="register">
+        <h1>Register</h1>
+            <form action="/register" method='post' class="reg">
+                {% csrf_token %}
+                <label for="firstname">First Name:</label>
+                <input type="text" name="first_name">
+                <br>
+                <br>
+                <label for="lastname">Last Name:</label>
+                <input type="text" name="last_name">
+                <br>
+                <br>
+                <label for="email">Email:</label>
+                <input type="text" name="email">
+                <br>
+                <br>
+                <label for="password">Password:</label>
+                <input type="password" name="password">
+                <p>[Must be atleast 8 characters long]</p>
+                <label for="confirm">Password Confirmation:</label>
+                <input type="password" name="confirm">
+                <br>
+                <br>
+                <label for="birthday">Date of Birth</label>
+                <input type="date" name="birthday">
+                <br>
+                <br>
+                <input class="submit" type="submit" value="Register" class="enter">
+            </form>
+        </div>
+            <br>
+            <div class="error">
+                {% if messages %}
+                    {% for message in messages %}
+                        <ul>
+                            <li>{{ message }}</li>
+                        </ul>
+                    {% endfor %}
+                {% endif %}
+            </div>
+            <br>
+        <div class="login">
+            <h1>Login</h1>
+            <form action="/login" method='post'>
+                {% csrf_token %}
+                <label for="email">Email:</label>
+                <input type="text" name="email">
+                <br>                <br>
+                <label for="password">Password:</label>
+                <input type="password" name="password">
+                <br>
+                <br>
+                <input class="logsubmit" type="submit" value="Login" class="enter">
+            </form>
+            <br>
+            <div class="daily">
+                <h2>Today's Daily Quote</h2>
+                <h3>" {{ dailyQuote }} "</h3>
+            </div>
+        </div>
+        <div>
+</body>
+</html>

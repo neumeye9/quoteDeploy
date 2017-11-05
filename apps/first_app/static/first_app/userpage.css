@@ -1,0 +1,109 @@
+
+*{
+    padding: 0;
+    margin: 0;
+    font-size: 14pt;
+}
+
+.wrapper{
+    margin: auto;
+    width: 1000px;
+    height: 1400px;
+    border: 5px solid black;
+    background-color: gray;
+}
+
+.title{
+    font-family: 'Walter Turncoat';
+    text-align: center;
+    font-size: 78px;
+}
+
+.logout{
+    width: 200px;
+    height: 50px;
+    border: 2px solid black;
+    color: black;
+    background-color: lightblue;
+    border-radius: 10px;
+    font-family: 'Walter Turncoat';
+    text-align: center;
+    font-size: 26px;
+    padding: 5px;
+    position: relative;
+    left: 40px;
+    top: 20px;
+}
+
+.logout:hover{
+    background-color: black;
+    color: white;
+}
+
+.dashboard{
+    width: 200px;
+    height: 50px;
+    border: 2px solid black;
+    color: black;
+    background-color: lightblue;
+    border-radius: 10px;
+    font-family: 'Walter Turncoat';
+    text-align: center;
+    font-size: 26px;
+    padding: 5px;
+    position: relative;
+    left: 40px;
+    top: 50px;
+}
+
+.dashboard:hover{
+    background-color: black;
+    color: white;
+}
+
+#card{
+    border: 2px solid black;
+    color: black;
+    background-color: lightblue;
+    border-radius: 10px;
+    font-family: 'Walter Turncoat';
+    text-align: center;
+    height: 200px;
+    margin-bottom: 20px;
+    position: relative;
+    bottom: 150px;
+    left: 500px;
+    width: 400px;
+}
+
+.quote{
+    margin-top: 20px;
+}
+
+a{
+    text-decoration: none;
+}
+
+.created{
+    position: relative;
+    top: 50px;
+    left: 25px;
+    font-family: 'Walter Turncoat';
+    font-size: 20px;
+}
+
+.count{
+    position: relative;
+    top: 200px;
+    left: 50px;
+    font-family: 'Walter Turncoat';
+    font-size: 26px;
+}
+
+#count2{
+    position: relative;
+    top:200px;
+    left: 150px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 48px;
+}

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Welcome to quoteShare!</title>
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'first_app/success.css' %}">
+    <style>
+    @import url('https://fonts.googleapis.com/css?family=Walter+Turncoat');
+    @import url('https://fonts.googleapis.com/css?family=Just+Another+Hand');
+    </style>
+</head>
+    <div class="wrapper">
+    <body>
+        <h1 class="title">Welcome, {{user.first_name}}!</h1>
+        <br>
+        <a href="/logout" class="logout">Logout</a>
+        <br>
+        <br>
+        <h2 class="listTitle">Quotable Quotes</h2>
+        <div class="list">
+                {% for quote in quotes %}
+                
+                <div id="card">
+                <p class="p1">{{quote.name}}:</p>
+                <p class="p2">"{{quote.content}}"</p>
+                <p class="p3">Posted By: <a href="/userpage/{{quote.user.id}}" class="button">{{quote.user.first_name}}     <a href="/favorite/{{quote.id}}" class="button">Add  To Favorites List</a></p>
+                </div>
+                {% endfor %}
+        </div>
+        <br>
+        <div class="add">
+            <h2>Contribute a Quote:</h2>
+            <form action="/addquote" method='post'>
+                {% csrf_token %}
+                <label for="quote">Quote By:</label>
+                <input type="text" name="name">
+                <br>
+                <br>
+                <label for="message">Message:</label>
+                <br>
+                <textarea name="content" cols="30" rows="10"></textarea>
+                <br>
+                <br>
+                <input type="submit" value="Submit" class="submit">
+                <div class="error">
+                {% if messages %}
+                    {% for message in messages %}
+                    <p>{{message}}</p>
+                    {% endfor %}
+                {% endif %}
+                </div>
+            </form>
+        </div>
+
+        <br>
+        <div class="favorites">
+            <h2>Your Favorites</h2>
+            {% for userquote in userquotes%}
+            <div class="favCard">
+                <p class="p1">{{userquote.quote.name}}:</p>
+                <p class="p2"> {{userquote.quote.content}}</p>
+                <p class="p3">Posted By: <a href="/userpage/{{userquote.quote.user.id}}" class="button2">{{userquote.quote.user.first_name}}     <a href="/remove/{{userquote.quote.id}}" class="button2">Remove from My List</a></p>
+            </div>
+            {% endfor %}
+        </div>
+    </body>
+</div>
+</html>
